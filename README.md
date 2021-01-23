@@ -11,6 +11,13 @@
 
 The goal of the this course is to teach students to work together towards creating a program in a "real life" setting.  For the project, we collectively decided to create a webpage for a hotel, including functionality to allow users to book a hotel room.
 
+### Getting Started with VueJS
+Use npm to run the VueJS instance, link [here](https://nodejs.org/en/) to install npm and Node.js if needed.
+1. cd into vue-js folder
+2. npm install
+3. npm run dev
+4. Access via localhost
+
 ### Rough Outline
 
 The project can be broken up into two major components: frontend and backend.  The work for the two different systems will be divided up amongst the team members based off of their interests and strengths.  The following items are planned for the two systems:
@@ -62,7 +69,8 @@ There are a number of potential frameworks and services that we can make use of 
 
 - React
 - AngularJS
-- VueJS
+- VueJS [documentation](https://vuejs.org/v2/guide/)
+- Bootstrap 4 [documentation](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 
 #### Backend Frameworks
 
