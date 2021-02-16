@@ -2,7 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\vue-js",
-    "\\vue-js\\src"
+    "\\vue-js\\build",
+    "\\vue-js\\config",
+    "\\vue-js\\src",
+    "\\vue-js\\src\\components",
+    "\\vue-js\\src\\router"
   ],
   "SelectedNode": "\\vue-js\\src\\main.js",
   "PreviewInSolutionExplorer": false

@@ -1,51 +1,71 @@
 <template>
   <div class="hello">
+    <!-- Example of vusJs -->
     <h1>{{ msg }}</h1>
     <ul>
       <li>
         <div class="container-fluid">
-          <button type="button" class="btn btn-primary">Reservation</button>
+          <button class="btn btn btn-primary">
+            <router-link to="reservation">
+              Reservation
+            </router-link>
+          </button>
         </div>
       </li>
       <li>
         <div class="container-fluid">
-          <button href="reservation.html" type="button" class="btn btn-secondary">Manage Rooms</button>
+          <button class="btn btn btn-danger">
+            <router-link to="adminlogin">
+              Admin Login
+            </router-link>
+          </button>
         </div>
       </li>
       <li>
-      <div class="container-fluid">
-        <button type="button" class="btn btn-danger">Admin Login</button>
-      </div>
+        <div class="container-fluid">
+          <button class="btn btn btn-warning">
+            <router-link to="contactus">
+              Contact Us
+            </router-link>
+          </button>
+        </div>
       </li>
     </ul>
   </div>
 </template>
 
+<!-- Example of vusJs -->
 <script>
-export default {
-  name: 'Welcome',
-  data () {
-    return {
-      msg: 'Welcome to Hotel ....'
+  export default {
+    name: 'Welcome',
+    data() {
+      return {
+        msg: 'Welcome to Hotel ....'
+      }
     }
   }
-}
 </script>
+
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
+  h1, h2 {
+    font-weight: bold;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  a {
+    color: black;
+  }
 </style>
