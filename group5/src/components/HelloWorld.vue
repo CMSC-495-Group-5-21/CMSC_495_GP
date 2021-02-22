@@ -1,65 +1,68 @@
 <template>
-  <h1>{{ msg }}</h1>
-
-  <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-    +
-    <a
-      href="https://marketplace.visualstudio.com/items?itemName=octref.vetur"
-      target="_blank"
-    >Vetur</a>
-    or
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-    (if using
-    <code>&ltscript setup&gt;</code>)
-  </p>
-
-  <p>See <code>README.md</code> for more information.</p>
-
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite Docs</a> |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-  </p>
-
-  <button @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+  <div class="hello">
+    <!-- Example of vusJs -->
+    <h1>{{ msg }}</h1>
+    <ul>
+      <li>
+        <div class="container-fluid">
+          <button class="btn btn btn-primary">
+            <router-link to="reservation">
+              Reservation
+            </router-link>
+          </button>
+        </div>
+      </li>
+      <li>
+        <div class="container-fluid">
+          <button class="btn btn btn-danger">
+            <router-link to="adminlogin">
+              Admin Login
+            </router-link>
+          </button>
+        </div>
+      </li>
+      <li>
+        <div class="container-fluid">
+          <button class="btn btn btn-warning">
+            <router-link to="contactus">
+              Contact Us
+            </router-link>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
+<!-- Example of vusJs -->
 <script lang="ts">
 import { ref, defineComponent } from 'vue'
 export default defineComponent({
-  name: 'HelloWorld',
-  props: {
-    msg: {
-      type: String,
-      required: true
-    }
-  },
-  setup: () => {
-    const count = ref(0)
-    return { count }
-  }
-})
+  name: 'HelloWorld'
+}
+)
 </script>
 
+
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-a {
-  color: #42b983;
-}
 
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
+  h1, h2 {
+    font-weight: bold;
+  }
 
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
-}
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  a {
+    color: black;
+  }
 </style>
