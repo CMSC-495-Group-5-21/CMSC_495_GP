@@ -13,8 +13,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    env: 
-      working-directory: ./vue-js
+    defaults:
+      run:
+        working-directory: ./vue-js
 
     strategy:
       matrix:
@@ -26,7 +27,6 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        working-directory: ./vue-js
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run build --if-present
