@@ -24,7 +24,7 @@
 <style>
   input{
     margin: auto;
-    
+
 
   }
 
