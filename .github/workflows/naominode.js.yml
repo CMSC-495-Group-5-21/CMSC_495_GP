@@ -41,4 +41,4 @@ jobs:
     - run: npm ci
     - run: npm config set ignore-scripts false
     - run: npm run build --if-present
-    - run: npm test
+    - run: npm test --if-present
