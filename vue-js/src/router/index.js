@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import AdminLogin from '@/components/AdminLogin'
+import Login from '@/components/Login'
 import AdminHome from '@/components/AdminHome'
 import Manage from '@/components/Manage'
 import Reservation from '@/components/Reservation'
@@ -23,9 +23,9 @@ export default new Router({
       component: Reservation
     },
     {
-      path: '/adminlogin',
-      name: 'AdminLogin',
-      component: AdminLogin
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/adminhome',

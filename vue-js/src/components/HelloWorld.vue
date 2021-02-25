@@ -15,8 +15,8 @@
       <li>
         <div class="container-fluid">
           <button class="btn btn btn-danger">
-            <router-link to="adminlogin">
-              Admin Login
+            <router-link to="login">
+              Login
             </router-link>
           </button>
         </div>
