@@ -15,17 +15,8 @@
       <li>
         <div class="container-fluid">
           <button class="btn btn btn-danger">
-            <router-link to="login">
-              Login
-            </router-link>
-          </button>
-        </div>
-      </li>
-      <li>
-        <div class="container-fluid">
-          <button class="btn btn btn-success">
-            <router-link to="profilecreation">
-              Register
+            <router-link to="adminlogin">
+              Admin Login
             </router-link>
           </button>
         </div>
