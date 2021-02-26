@@ -8,21 +8,21 @@
    "synchronize": true,
    "logging": false,
    "entities": [
-      "src/entity/**/*.ts",
-      "src/entity/**/*.js"
+      "src/server/entity/**/*.ts",
+      "src/server/entity/**/*.js"
    ],
    "migrationsTableName": "migrations",
    "migrations": [
-      "src/migration/**/*.ts",
-      "src/migration/**/*.js"
+      "src/server/migration/**/*.ts",
+      "src/server/migration/**/*.js"
    ],
    "subscribers": [
-      "src/subscriber/**/*.ts",
-      "src/subscriber/**/*.js"
+      "src/server/subscriber/**/*.ts",
+      "src/server/subscriber/**/*.js"
    ],
    "cli": {
-     "entitiesDir": "src/entity",
-     "migrationsDir": "src/migration",
-     "subscriberDir": "src/subscriber"
+     "entitiesDir": "src/server/entity",
+     "migrationsDir": "src/server/migration",
+     "subscriberDir": "src/server/subscriber"
    }
 }
