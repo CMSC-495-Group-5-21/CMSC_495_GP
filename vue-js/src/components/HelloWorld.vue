@@ -23,6 +23,15 @@
       </li>
       <li>
         <div class="container-fluid">
+          <button class="btn btn btn-success">
+            <router-link to="profilecreation">
+              Register
+            </router-link>
+          </button>
+        </div>
+      </li>
+      <li>
+        <div class="container-fluid">
           <button class="btn btn btn-warning">
             <router-link to="contactus">
               Contact Us
