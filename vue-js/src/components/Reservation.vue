@@ -5,7 +5,12 @@
       <!-- name text -->
       <div class="name">
         <p>Name</p>
-        <input type="text" v-model="message">
+        <input type="text" v-model="message" placeholder="Your name">
+      </div>
+      <!-- Number of Occupants -->
+      <div>
+        <p for="quantity">Number of Occupants (Max 6)</p>
+        <input type="number" id="quantity" name="quantity" min="1" max="6">
       </div>
       <!-- date text -->
       <div class="date">
@@ -24,6 +29,12 @@
           <option>Standard 3</option>
         </select>
       </div>
+      <!-- Special Request -->
+      <div>
+        <p>Special Request</p>
+        <input type="text" v-model="message" placeholder="Enter in Request">
+      </div>
+      <br />
       <div class="container-fluid">
         <button class="btn btn btn-danger">
           <router-link to="thankyou">
