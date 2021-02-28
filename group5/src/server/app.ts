@@ -211,7 +211,7 @@ createConnection().then(connection => {
                 .getMany();
             res.json(openRooms);
         } catch (e) {
-            res.send("Unable to retrieve open rooms";
+            res.send("Unable to retrieve open rooms");
         }
     });
 
@@ -258,10 +258,10 @@ createConnection().then(connection => {
         try {
             const password = req.body.password;
             const hashed = await bcrypt.hashSync(password, 10);
-            const newUser = await connection
+            const updateUser = await connection
                 .createQueryBuilder()
                 .update(User)
-                .set([
+                .set(
                     {
                         username: req.body.username,
                         passwordHash: hashed,
@@ -271,11 +271,11 @@ createConnection().then(connection => {
                         prefix: req.body.prefix,
                         suffix: req.body.suffix,
                     }
-                ]).where("uuid = :uuid", {uuid: req.body.uuid})
+                ).where("uuid = :uuid", {uuid: req.body.uuid})
                 .execute();
             res.json(updateUser);
         } catch(e) {
-            res.send("Unable to create new user");
+            res.send("Unable to Update the selected user");
         }
     });
 
