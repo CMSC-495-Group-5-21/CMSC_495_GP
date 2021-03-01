@@ -7,11 +7,13 @@
         <p>Name</p>
         <input type="text" v-model="message">
       </div>
+       <br />
       <!-- date text -->
       <div class="date">
         <p>Date</p>
         <input type="date" v-model="date">
       </div>
+       <br />
       <!-- Room select -->
       <div class="room">
         <p>Select a Room</p>
@@ -24,6 +26,7 @@
           <option>Standard 3</option>
         </select>
       </div>
+      <br />
       <div class="container-fluid">
         <button class="btn btn btn-danger">
           <router-link to="thankyou">
@@ -42,11 +45,9 @@
       const multiSelect = ['King Suite 1', 'King Suite 2', 'Queen Suite 1', 'Standard 1',
       'Standard 2', 'Standard 3'];
       return {
-
       }
     }
   }
-
 </script>
 
 <style>

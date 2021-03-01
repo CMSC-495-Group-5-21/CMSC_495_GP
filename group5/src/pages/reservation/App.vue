@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <img src="./assets/lobby.jpg" alt="Trulli" width="1000" height="333">
-    <router-view/>
+    <router-view />
   </div>
+  <h1> Hello</h1>
 </template>
 
 <script>
@@ -11,7 +12,6 @@ export default {
   }
 
 </script>
-
 
 <style>
 #app {
