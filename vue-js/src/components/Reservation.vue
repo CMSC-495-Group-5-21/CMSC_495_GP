@@ -7,11 +7,13 @@
         <p>Name</p>
         <input type="text" v-model="message">
       </div>
+      <br />
       <!-- date text -->
       <div class="date">
         <p>Date</p>
         <input type="date" v-model="date">
       </div>
+      <br />
       <!-- Room select -->
       <div class="room">
         <p>Select a Room</p>
