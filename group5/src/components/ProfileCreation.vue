@@ -4,47 +4,22 @@
       <h1>Rosebudd Hotel Profile Creation</h1>
       <!-- Create Profile for New Users -->
       <form class="justify-content-center">
-        <div class="form-group row">
-          <label for="newUserEmail" class="col-sm-1 col-form-label"
-            >Email</label
-          >
-          <div class="col-sm-10">
-            <input
-              type="text"
-              class="form-control"
-              id="newUserEmail"
-              placeholder="Email"
-            />
-          </div>
-        </div>
+        <label for="newUserEmail" class="grey-text">Email </label>
+        <input
+          type="email"
+          id="newUserEmail"
+          class="form-control"
+          placeholder="Email"
+        />
         <br />
-        <div class="form-group row">
-          <label for="inputPassword" class="col-sm-1 col-form-label"
-            >Password</label
-          >
-          <div class="col-sm-10">
-            <input
-              type="password"
-              class="form-control"
-              id="inputPassword"
-              placeholder="Password"
-            />
-          </div>
-        </div>
         <br />
-        <div class="form-group row">
-          <label for="confirmPassword" class="col-sm-1 col-form-label"
-            >Confirm Password</label
-          >
-          <div class="col-sm-10">
-            <input
-              type="password"
-              class="form-control"
-              id="Password"
-              placeholder="Re-enter Password"
-            />
-          </div>
-        </div>
+        <label for="inputPassword" class="grey-text">Password </label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password"/>
+        <br />
+        <br />
+        <label for="confirmPassword" class="grey-text">Confirm Password </label>
+        <input type="password" id="confirmPassword" class="form-control" placeholder="Re-enter Password"/>
+        <br />
         <br />
         <div class="form-group row">
           <div class="col-sm-2">
