@@ -3,7 +3,9 @@ import express from "express";
 import { Request, Response } from "express";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import multer from "multer";
 import session from "express-session";
+import cors from 'cors';
 
 // Bcrypt for password hashing
 import bcrypt from "bcrypt";
@@ -18,10 +20,12 @@ import { RoomType } from "./entity/RoomType";
 
 // Create and setup express application
 const app = express();
+const upload = multer();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({ secret: "CMSC_495_GP Group5 2021" }));
+app.use(cors());
 
 
 // Create database createConnection
@@ -32,7 +36,7 @@ createConnection().then(connection => {
     // Register routes below
 
     // Create a new user
-    app.post("/newUser", async function(req: Request, res: Response) {
+    app.post("/newUser", upload.none(), async function(req: Request, res: Response) {
         try {
             const password = req.body.password;
             const hashed = await bcrypt.hashSync(password, 10);
@@ -59,7 +63,8 @@ createConnection().then(connection => {
     });
 
     // Create a new reservation
-    app.post("/newReservation", async function(req: Request, res: Response) {
+    app.post("/newReservation", upload.none(), async function(req: Request, res: Response) {
+        console.log("New Reservation Request Recieved");
         try {
             const newRes = await connection
                 .createQueryBuilder()
@@ -83,7 +88,7 @@ createConnection().then(connection => {
     });
 
     // Create a new room type
-    app.post("/newRoomType", async function(req: Request, res: Response) {
+    app.post("/newRoomType", upload.none(), async function(req: Request, res: Response) {
         try {
             const newType = await connection
                 .createQueryBuilder()
@@ -104,7 +109,7 @@ createConnection().then(connection => {
     });
 
     // Create a new room
-    app.post("/newRoom", async function(req: Request, res: Response) {
+    app.post("/newRoom",upload.none(), async function(req: Request, res: Response) {
         try {
             const newRoom = await connection
                 .createQueryBuilder()
@@ -124,7 +129,7 @@ createConnection().then(connection => {
     });
 
     // Get all reservations for a user
-    app.post("/userReservations", async function(req: Request, res: Response) {
+    app.post("/userReservations",upload.none(), async function(req: Request, res: Response) {
         try {
             const reservations = await connection
                 .createQueryBuilder()
@@ -195,7 +200,7 @@ createConnection().then(connection => {
     });
 
     // Get all open rooms
-    app.post("/getOpenRooms", async function(req: Request, res: Response) {
+    app.post("/getOpenRooms",upload.none(), async function(req: Request, res: Response) {
         try {
             const openRooms = await connection
                 .createQueryBuilder()
@@ -216,7 +221,7 @@ createConnection().then(connection => {
     });
 
     // Login the user
-    app.post("/login", async function(req: Request, res: Response) {
+    app.post("/login",upload.none(), async function(req: Request, res: Response) {
         try {
             const checkUser = await connection
                 .createQueryBuilder()
@@ -239,7 +244,7 @@ createConnection().then(connection => {
     });
 
     // Make a user the admin
-    app.post("/makeAdmin", async function(req: Request, res: Response) {
+    app.post("/makeAdmin",upload.none(), async function(req: Request, res: Response) {
         try {
             const newAdmin = await connection
                 .createQueryBuilder()
@@ -254,7 +259,7 @@ createConnection().then(connection => {
     });
 
     // Update the selected user
-    app.post("/updateUser", async function(req: Request, res: Response) {
+    app.post("/updateUser", upload.none(), async function(req: Request, res: Response) {
         try {
             const password = req.body.password;
             const hashed = await bcrypt.hashSync(password, 10);
