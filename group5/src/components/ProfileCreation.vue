@@ -3,9 +3,7 @@
       <div>
           <h1>Rosebudd Hotel Profile Creation</h1>
           <!-- Create Profile for New Users -->
-          <!-- example in form action="http://www.foo.com" method="POST" -->
-          <!-- need to figure out where to send data-->
-          <form class="justify-content-center" method="POST">
+          <form class="justify-content-center" action="/newUser" method="POST">
               <label for="newUserEmail" class="grey-text">Email </label>
               <input type="email"
                      id="newUserEmail"

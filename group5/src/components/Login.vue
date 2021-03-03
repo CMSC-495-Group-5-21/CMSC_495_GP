@@ -1,9 +1,7 @@
 <template>
   <div>
       <div>
-          <!-- example in form action="http://www.foo.com" method="GET" -->
-          <!-- need to figure out where to send data-->
-          <form method="GET">
+          <form action="/login" method="GET">
               <h1>Rosebudd Hotel Login</h1>
               <label for="defaultFormLoginEmailEx" class="grey-text">Username </label>
               <input type="email" id="defaultFormLoginEmailEx" class="form-control" />

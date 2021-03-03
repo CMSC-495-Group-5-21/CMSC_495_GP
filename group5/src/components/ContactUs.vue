@@ -1,8 +1,6 @@
 <template>
     <div>
         <h1> Please enter your information</h1>
-        <!-- example in form action="http://www.foo.com" method="POST" -->
-        <!-- need to figure out where to send data-->
         <form id="contactus" method="POST">
             <!-- name text -->
             <div class="name">

@@ -1,9 +1,7 @@
 <template>
     <div>
         <h1>Reserve a Room at Rosebudd Hotel</h1>
-        <!-- example in form action="http://www.foo.com" method="POST" -->
-        <!-- need to figure out where to send data-->
-        <form id="example" method="POST">
+        <form id="example" action="/newReservation" method="POST">
             <!-- login -->
             <div class="name">
                 <button class="btn btn btn-danger">
