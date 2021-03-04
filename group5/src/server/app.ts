@@ -222,6 +222,9 @@ createConnection().then(connection => {
 
     // Login the user
     app.post("/login",upload.none(), async function(req: Request, res: Response) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const checkUser = await connection
                 .createQueryBuilder()
@@ -232,6 +235,12 @@ createConnection().then(connection => {
             const match = bcrypt.compareSync(req.body.password, checkUser.passwordHash);
             if (match) {
                 res.cookie('uuid', checkUser.uuid, {
+                    maxAge: 60 * 60 * 1000
+                });
+                res.cookie('firstName', checkUser.firstName, {
+                    maxAge: 60 * 60 * 1000
+                });
+                res.cookie('lastName', checkUser.lastName, {
                     maxAge: 60 * 60 * 1000
                 });
                 res.send("Success");

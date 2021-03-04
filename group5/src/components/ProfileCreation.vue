@@ -3,7 +3,7 @@
     <div>
         <h1>Rosebudd Hotel Profile Creation</h1>
         <!-- Create Profile for New Users -->
-        <form class="justify-content-center" id="newuser" @submit="this.processForm">
+        <form class="justify-content-center" id="newuser" @submit.prevent="this.processForm">
             <label for="username" class="grey-text">Username </label>
             <input type="text" id="username" name="username" class="form-control" placeholder="username" v-model="username" />
             <br />

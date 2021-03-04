@@ -6,7 +6,7 @@
       <div class="form-group">
         <fieldset disabled>
           <div class="form-group">
-            <label for="currentReservationFromDB">Current Reservation</label>
+            <label for="currentReservationFromDB">Current Reservation(s)</label>
             <input
               type="text"
               class="form-control mb-2 mr-sm-2"
@@ -40,8 +40,25 @@
 </template>
 
 
-<script>
-export default {}
+<script lang="ts">
+import axios from 'axios';
+axios.defaults.withCredentials = true;
+import router from '../router';
+const uuid = document.cookie
+.split(";")
+.find(row => row.startsWith("uuid="))
+.split('=')[1];
+export default {
+    data() {
+
+    },
+    methods: {
+
+    },
+    mounted() {
+
+    }
+}
 </script>
 
 
