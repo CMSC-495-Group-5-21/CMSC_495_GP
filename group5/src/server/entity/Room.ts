@@ -8,6 +8,7 @@ import {
     DeleteDateColumn,
     OneToOne,
     OneToMany,
+    ManyToOne,
     JoinColumn
 } from "typeorm";
 
@@ -25,8 +26,7 @@ export class Room {
     uuid!: string;
 
     // Room type selection, for pricing
-    @OneToOne(() => RoomType)
-    @JoinColumn()
+    @ManyToOne(() => RoomType, roomType => roomType.rooms)
     roomType!: RoomType;
 
     // Reservations associated with the current room
