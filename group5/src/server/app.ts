@@ -37,6 +37,9 @@ createConnection().then(connection => {
 
     // Create a new user
     app.post("/newUser", upload.none(), async function(req: Request, res: Response) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const password = req.body.password;
             const hashed = await bcrypt.hashSync(password, 10);
@@ -64,7 +67,9 @@ createConnection().then(connection => {
 
     // Create a new reservation
     app.post("/newReservation", upload.none(), async function(req: Request, res: Response) {
-        console.log("New Reservation Request Recieved");
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const newRes = await connection
                 .createQueryBuilder()
@@ -89,6 +94,9 @@ createConnection().then(connection => {
 
     // Create a new room type
     app.post("/newRoomType", upload.none(), async function(req: Request, res: Response) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const newType = await connection
                 .createQueryBuilder()
@@ -110,6 +118,9 @@ createConnection().then(connection => {
 
     // Create a new room
     app.post("/newRoom",upload.none(), async function(req: Request, res: Response) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const newRoom = await connection
                 .createQueryBuilder()
@@ -130,6 +141,9 @@ createConnection().then(connection => {
 
     // Get all reservations for a user
     app.post("/userReservations",upload.none(), async function(req: Request, res: Response) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const reservations = await connection
                 .createQueryBuilder()
@@ -201,6 +215,9 @@ createConnection().then(connection => {
 
     // Get all open rooms
     app.post("/getOpenRooms",upload.none(), async function(req: Request, res: Response) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const openRooms = await connection
                 .createQueryBuilder()
@@ -254,6 +271,9 @@ createConnection().then(connection => {
 
     // Make a user the admin
     app.post("/makeAdmin",upload.none(), async function(req: Request, res: Response) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const newAdmin = await connection
                 .createQueryBuilder()
@@ -269,6 +289,9 @@ createConnection().then(connection => {
 
     // Update the selected user
     app.post("/updateUser", upload.none(), async function(req: Request, res: Response) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const password = req.body.password;
             const hashed = await bcrypt.hashSync(password, 10);
