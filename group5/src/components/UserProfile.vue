@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Rosebudd Hotel</h2>
+    <h2>Welcome</h2>
     <!-- View Rooms reserved -->
     <form class="form-inline justify-content-center">
       <div class="form-group">
@@ -14,7 +14,6 @@
               placeholder=""
             />
           </div>
-          <br />
           <div class="form-group">
             <label for="pastReservationFromDB">Past Reservation(s)</label>
             <input
@@ -27,15 +26,6 @@
         </fieldset>
       </div>
     </form>
-     <br />
-    <div class="container-fluid">
-      <button class="btn btn btn-standard">
-        <router-link to="reservation"> New Reservation </router-link>
-      </button>
-      <button class="btn btn btn-standard">
-        <router-link to="/"> Home </router-link>
-      </button>
-    </div>
   </div>
 </template>
 
