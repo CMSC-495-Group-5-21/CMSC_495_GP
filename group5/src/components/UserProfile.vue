@@ -1,53 +1,90 @@
 <template>
-  <div>
+<div>
+    <h1> Welcome, {{firstName}}!</h1>
     <h2>Rosebudd Hotel</h2>
     <!-- View Rooms reserved -->
-    <form class="form-inline justify-content-center">
-      <div class="form-group">
-        <fieldset disabled>
-          <div class="form-group">
-            <label for="currentReservationFromDB">Current Reservation</label>
-            <input
-              type="text"
-              class="form-control mb-2 mr-sm-2"
-              id="currentReservationFromDB"
-              placeholder=""
-            />
-          </div>
-          <br />
-          <div class="form-group">
-            <label for="pastReservationFromDB">Past Reservation(s)</label>
-            <input
-              type="text"
-              id="pastReservationFromDB"
-              class="form-control"
-              placeholder=""
-            />
-          </div>
-        </fieldset>
-      </div>
-    </form>
-     <br />
+    <table id="reservations" class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Reservation ID</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Assigned Room</th>
+                <th scope="col">Special Requests</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(reservation, i) in this.reservations" :key="i">
+                <th scope="row">{{++i}}</th>
+                <td>{{reservation.uuid}}</td>
+                <td>{{new Date(reservation.startDate).toLocaleDateString()}}</td>
+                <td>{{new Date(reservation.endDate).toLocaleDateString()}}</td>
+                <td>{{reservation.assignedRoom}}</td>
+                <td>{{reservation.specialRequests}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
     <div class="container-fluid">
-      <button class="btn btn btn-standard">
-        <router-link to="reservation"> New Reservation </router-link>
-      </button>
-      <button class="btn btn btn-standard">
-        <router-link to="/"> Home </router-link>
-      </button>
+        <button class="btn btn btn-standard">
+            <router-link to="reservation"> New Reservation </router-link>
+        </button>
+        <button class="btn btn btn-standard">
+            <router-link to="/"> Home </router-link>
+        </button>
     </div>
-  </div>
+</div>
 </template>
 
 
-<script>
-export default {}
+<script lang="ts">
+import axios from 'axios';
+axios.defaults.withCredentials = true;
+import router from '../router';
+export default {
+    data() {
+        let uuid = '';
+        let firstName = '';
+        let reservations = [];
+        return {
+            uuid,
+            firstName,
+            reservations
+        }
+    },
+    methods: {
+        // returns the cookie with the given name,
+        // or undefined if not found
+        getCookie: function(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+
+    },
+    mounted() {
+        let uuid = this.getCookie("uuid");
+        this.uuid = uuid;
+        let firstName = this.getCookie("firstName");
+        this.firstName = firstName;
+        let data = new FormData();
+        data.append("createdBy", uuid);
+        axios.post('http://localhost:4000/userReservations', data)
+            .then(response => response.data)
+            .then(data => this.reservations = data)
+            .catch(error => {
+                alert(error);
+            });
+    }
+}
 </script>
 
 
 
 <style>
 input {
-  margin: auto;
+    margin: auto;
 }
 </style>
