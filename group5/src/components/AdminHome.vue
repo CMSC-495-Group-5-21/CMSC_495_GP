@@ -9,13 +9,6 @@
         </router-link>
       </button>
     </div>
-    <div class="container-fluid">
-      <button class="btn btn btn-primary">
-        <router-link to="reservation">
-          New Reservation
-        </router-link>
-      </button>
-    </div>
   </div>
 </template>
 
