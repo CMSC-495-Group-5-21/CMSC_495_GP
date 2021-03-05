@@ -287,6 +287,9 @@ createConnection().then(connection => {
                 res.cookie('lastName', checkUser.lastName, {
                     maxAge: 60 * 60 * 1000
                 });
+                res.cookie('admin', checkUser.admin, {
+                    maxAge: 60 * 60 * 1000
+                });
                 res.send("Success");
             } else {
                 res.send("Incorrect Password");

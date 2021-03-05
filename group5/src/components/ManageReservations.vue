@@ -28,9 +28,6 @@
     <br />
     <div class="container-fluid">
         <button class="btn btn btn-standard">
-            <router-link to="reservation"> New Reservation </router-link>
-        </button>
-        <button class="btn btn btn-standard">
             <router-link to="/"> Home </router-link>
         </button>
         <button v-if="admin" class="btn btn btn-standard">
@@ -49,11 +46,15 @@ export default {
     data() {
         let uuid = '';
         let firstName = '';
+        let middleName = '';
+        let lastName = '';
         let reservations = [];
         let admin = false;
         return {
             uuid,
             firstName,
+            middleName,
+            lastName,
             reservations,
             admin
         }
@@ -76,9 +77,7 @@ export default {
         this.firstName = firstName;
         let admin = this.getCookie("admin");
         this.admin = admin;
-        let data = new FormData();
-        data.append("createdBy", uuid);
-        axios.post('http://localhost:4000/userReservations', data)
+        axios.get('http://localhost:4000/getAllReservations')
             .then(response => response.data)
             .then(data => this.reservations = data)
             .catch(error => {
