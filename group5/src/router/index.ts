@@ -2,12 +2,15 @@ import { createWebHistory, createRouter } from 'vue-router'
 import HelloWorld from '../components/HelloWorld.vue'
 import Login from '../components/Login.vue'
 import AdminHome from '../components/AdminHome.vue'
-import Manage from '../components/Manage.vue'
 import Reservation from '../components/Reservation.vue'
 import ThankYou from '../components/ThankYou.vue'
 import ContactUs from '../components/ContactUs.vue'
 import ProfileCreation from '../components/ProfileCreation.vue'
 import UserProfile from '../components/UserProfile.vue'
+import ManageUsers from '../components/ManageUsers.vue'
+import ManageReservations from '../components/ManageReservations.vue'
+import AddRoom from '../components/AddRoom.vue'
+import AddRoomType from '../components/AddRoomType.vue'
 
 const history = createWebHistory();
 const routes = [
@@ -22,6 +25,27 @@ const routes = [
         component: Reservation
     },
     {
+        path: '/managereservations',
+        name: 'ManageReservations',
+        component: ManageReservations,
+    },
+    {
+        path: '/addroom',
+        name: 'AddRoom',
+        component: AddRoom
+    }
+    ,
+    {
+        path: '/addroomtype',
+        name: 'AddRoomType',
+        component: AddRoomType
+    },
+    {
+        path: '/manageusers',
+        name: 'ManageUsers',
+        component: ManageUsers
+    },
+    {
         path: '/login',
         name: 'Login',
         component: Login
@@ -30,11 +54,6 @@ const routes = [
         path: '/adminhome',
         name: 'AdminHome',
         component: AdminHome
-    },
-    {
-        path: '/manage',
-        name: 'Manage',
-        component: Manage
     },
     {
         path: '/thankyou',

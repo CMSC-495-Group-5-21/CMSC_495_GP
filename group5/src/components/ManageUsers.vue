@@ -3,33 +3,30 @@
     <h1> Welcome, {{firstName}}!</h1>
     <h2>Rosebudd Hotel</h2>
     <!-- View Rooms reserved -->
-    <table id="reservations" class="table mt-5">
+    <table id="users" class="table mt-5">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Reservation ID</th>
-                <th scope="col">Start Date</th>
-                <th scope="col">End Date</th>
-                <th scope="col">Assigned Room</th>
-                <th scope="col">Special Requests</th>
+                <th scope="col">User ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Middle Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Admin</th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for="(reservation, i) in this.reservations" :key="i">
+            <tr v-for="(user, i) in this.users" :key="i">
                 <th scope="row">{{++i}}</th>
-                <td>{{reservation.uuid}}</td>
-                <td>{{new Date(reservation.startDate).toLocaleDateString()}}</td>
-                <td>{{new Date(reservation.endDate).toLocaleDateString()}}</td>
-                <td>{{reservation.assignedRoom}}</td>
-                <td>{{reservation.specialRequests}}</td>
+                <td>{{user.uuid}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.middleName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.admin}}</td>
             </tr>
         </tbody>
     </table>
     <br />
     <div class="container-fluid">
-        <button class="btn btn btn-standard">
-            <router-link to="reservation"> New Reservation </router-link>
-        </button>
         <button class="btn btn btn-standard">
             <router-link to="/"> Home </router-link>
         </button>
@@ -49,12 +46,16 @@ export default {
     data() {
         let uuid = '';
         let firstName = '';
-        let reservations = [];
+        let middleName = '';
+        let lastName = '';
+        let users = [];
         let admin = false;
         return {
             uuid,
             firstName,
-            reservations,
+            middleName,
+            lastName,
+            users,
             admin
         }
     },
@@ -76,11 +77,9 @@ export default {
         this.firstName = firstName;
         let admin = this.getCookie("admin");
         this.admin = admin;
-        let data = new FormData();
-        data.append("createdBy", uuid);
-        axios.post('http://localhost:4000/userReservations', data)
+        axios.get('http://localhost:4000/getAllUsers')
             .then(response => response.data)
-            .then(data => this.reservations = data)
+            .then(data => this.users = data)
             .catch(error => {
                 alert(error);
             });
