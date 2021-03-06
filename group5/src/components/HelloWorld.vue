@@ -8,14 +8,9 @@
             <p>One towel per room, regardless of number of occupants.</p>
             <p>Should a roof leak, move the bed to a dry area.</p>
         </div>
+        <br>
+        <!-- Login | Register | Contact Us Buttons -->
         <ul>
-            <li>
-                <div class="container-fluid">
-                    <button class="btn btn btn-primary">
-                        <router-link to="reservation"> Reservation </router-link>
-                    </button>
-                </div>
-            </li>
             <li>
                 <div class="container-fluid">
                     <button class="btn btn btn-danger">
