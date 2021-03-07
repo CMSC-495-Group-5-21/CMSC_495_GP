@@ -38,7 +38,7 @@ createConnection().then(connection => {
     // Create a new user
     app.post("/newUser", upload.none(), async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const password = req.body.password;
@@ -60,7 +60,7 @@ createConnection().then(connection => {
                 ])
                 .execute();
             res.json(newUser);
-        } catch(e) {
+        } catch (e) {
             res.send("Unable to create new user");
         }
     });
@@ -68,7 +68,7 @@ createConnection().then(connection => {
     // Create a new reservation
     app.post("/newReservation", upload.none(), async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const newRes = await connection
@@ -95,7 +95,7 @@ createConnection().then(connection => {
     // Create a new room type
     app.post("/newRoomType", upload.none(), async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const newType = await connection
@@ -117,9 +117,9 @@ createConnection().then(connection => {
     });
 
     // Create a new room
-    app.post("/newRoom",upload.none(), async function(req: Request, res: Response) {
+    app.post("/newRoom", upload.none(), async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const newRoom = await connection
@@ -140,9 +140,9 @@ createConnection().then(connection => {
     });
 
     // Get all reservations for a user
-    app.post("/userReservations",upload.none(), async function(req: Request, res: Response) {
+    app.post("/userReservations", upload.none(), async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const reservations = await connection
@@ -160,7 +160,7 @@ createConnection().then(connection => {
     // Get all rooms
     app.get("/getAllRooms", async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const rooms = await connection
@@ -177,7 +177,7 @@ createConnection().then(connection => {
     // Get all room types
     app.get("/getAllRoomTypes", async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const types = await connection
@@ -194,7 +194,7 @@ createConnection().then(connection => {
     // Get all reservations
     app.get("/getAllReservations", async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const reservations = await connection
@@ -211,7 +211,7 @@ createConnection().then(connection => {
     // Get all users
     app.get("/getAllUsers", async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const users = await connection
@@ -226,9 +226,9 @@ createConnection().then(connection => {
     });
 
     // Get all open rooms
-    app.post("/getOpenRooms",upload.none(), async function(req: Request, res: Response) {
+    app.post("/getOpenRooms", upload.none(), async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const bookedRes = await connection
@@ -243,7 +243,7 @@ createConnection().then(connection => {
                         .andWhere("rooms.endDate > :endDate", { endDate: new Date(req.body.endDate) })
                 }))
                 .getMany();
-                const openRooms = await connection
+            const openRooms = await connection
                 .createQueryBuilder()
                 .select("room")
                 .from(Room, "room")
@@ -265,9 +265,9 @@ createConnection().then(connection => {
     });
 
     // Login the user
-    app.post("/login",upload.none(), async function(req: Request, res: Response) {
+    app.post("/login", upload.none(), async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const checkUser = await connection
@@ -300,9 +300,9 @@ createConnection().then(connection => {
     });
 
     // Make a user the admin
-    app.post("/makeAdmin",upload.none(), async function(req: Request, res: Response) {
+    app.post("/makeAdmin", upload.none(), async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const newAdmin = await connection
@@ -320,18 +320,18 @@ createConnection().then(connection => {
     // Cancel a reservations
     app.post("/cancelReservation", upload.none(), async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const deleted = await connection
-            .createQueryBuilder()
-            .softDelete()
-            .from(Reservation)
-            .where("uuid = :uuid", {uuid: req.body.uuid})
-            .execute();
+                .createQueryBuilder()
+                .softDelete()
+                .from(Reservation)
+                .where("uuid = :uuid", { uuid: req.body.uuid })
+                .execute();
             res.json(deleted);
 
-        } catch(e) {
+        } catch (e) {
             res.send("Unable to delete reservation");
         }
     });
@@ -339,7 +339,7 @@ createConnection().then(connection => {
     // Update the selected user
     app.post("/updateUser", upload.none(), async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.setHeader('Access-Control-Allow-Credentials', "true");
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         try {
             const password = req.body.password;
@@ -357,10 +357,10 @@ createConnection().then(connection => {
                         prefix: req.body.prefix,
                         suffix: req.body.suffix,
                     }
-                ).where("uuid = :uuid", {uuid: req.body.uuid})
+                ).where("uuid = :uuid", { uuid: req.body.uuid })
                 .execute();
             res.json(updateUser);
-        } catch(e) {
+        } catch (e) {
             res.send("Unable to Update the selected user");
         }
     });
@@ -370,6 +370,6 @@ createConnection().then(connection => {
         console.log(`Listening at http://localhost:${4000}`);
         console.log("HMR via nodemon");
     });
-}).catch(e =>  {
+}).catch(e => {
     console.log(e);
 });

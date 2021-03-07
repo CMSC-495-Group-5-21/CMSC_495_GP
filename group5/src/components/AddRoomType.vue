@@ -49,7 +49,7 @@ export default {
             data.append('typeName', this.typeName);
             data.append('typeCost', this.typeCost);
             axios.post('http://localhost:4000/newRoomType', data)
-            .then(response => this.response = response.data)
+                .then(response => this.response = response.data)
                 .then(router.push('adminhome'))
                 .catch(error => {
                     alert(error);

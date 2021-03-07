@@ -21,7 +21,7 @@
                             <td>{{room}}</td>
                             <td>{{this.roomTypes.get(room)}}</td>
                             <td>{{this.roomCosts.get(room)}}</td>
-                            <td><input type="radio" name="roomType" id="roomType" v-model="roomType" :value="room"/></td>
+                            <td><input type="radio" name="roomType" id="roomType" v-model="roomType" :value="room" /></td>
                         </tr>
 
                     </tbody>
@@ -58,60 +58,59 @@ export default {
         let rooms = [];
         let roomTypes = new Map();
         let roomCosts = new Map();
-    return {
-        rooms,
-        roomType,
-        roomTypes,
-        roomCosts
-    };
-  },
-  methods: {
-      processForm: function() {
-          let data = new FormData();
-          data.append('roomType', this.roomType);
-          axios.post('http://localhost:4000/newRoom', data)
-          .then(response => this.response = response.data)
-          .then(router.push('adminhome'))
-          .then(router.go(1))
-          .catch(error => {
-              alert(error);
-          });
+        return {
+            rooms,
+            roomType,
+            roomTypes,
+            roomCosts
+        };
+    },
+    methods: {
+        processForm: function() {
+            let data = new FormData();
+            data.append('roomType', this.roomType);
+            axios.post('http://localhost:4000/newRoom', data)
+                .then(response => this.response = response.data)
+                .then(router.push('adminhome'))
+                .then(router.go(1))
+                .catch(error => {
+                    alert(error);
+                });
 
-      },
-      getTypes: function() {
-          axios.get('http://localhost:4000/getAllRoomTypes')
-          .then((response) => {
-              let roomTypes = new Map();
-              let roomCosts = new Map();
-              let rooms = [];
-              response.data.forEach( (room) => {
-                  this.rooms.push(room.uuid);
-                  this.roomTypes.set(room.uuid, room.typeName);
-                  this.roomCosts.set(room.uuid, room.typeCost);
-              });
-          }).catch(error => {
-              alert(error);
-          });
-      },
-      getCookie: function(name) {
-          let matches = document.cookie.match(new RegExp(
-              "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-          ));
-          return matches ? decodeURIComponent(matches[1]) : undefined;
-      }
-  },
-  update() {
-  },
-  mounted() {
-      let uuid = this.getCookie("uuid");
-      this.uuid = uuid;
-      let firstName = this.getCookie("firstName");
-      this.firstName = firstName;
-      let lastName = this.getCookie("lastName");
-      this.lastName = lastName;
-      this.getTypes();
+        },
+        getTypes: function() {
+            axios.get('http://localhost:4000/getAllRoomTypes')
+                .then((response) => {
+                    let roomTypes = new Map();
+                    let roomCosts = new Map();
+                    let rooms = [];
+                    response.data.forEach((room) => {
+                        this.rooms.push(room.uuid);
+                        this.roomTypes.set(room.uuid, room.typeName);
+                        this.roomCosts.set(room.uuid, room.typeCost);
+                    });
+                }).catch(error => {
+                    alert(error);
+                });
+        },
+        getCookie: function(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+    },
+    update() {},
+    mounted() {
+        let uuid = this.getCookie("uuid");
+        this.uuid = uuid;
+        let firstName = this.getCookie("firstName");
+        this.firstName = firstName;
+        let lastName = this.getCookie("lastName");
+        this.lastName = lastName;
+        this.getTypes();
 
-  }
+    }
 };
 </script>
 
