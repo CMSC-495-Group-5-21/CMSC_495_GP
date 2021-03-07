@@ -1,3 +1,32 @@
+/*
+ *          *** Change Log ***
+
+ commit f149fb209f18464fe278f6271542c2e771cb9fd8
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Thu Mar 4 18:28:55 2021 -0500
+
+    Made the reservation page functional
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/entity/Room.ts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 06aa099203a84415c47488341666434a0a891e00
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Fri Feb 26 13:44:48 2021 -0500
+
+    Added initial backend server,
+    Updated models to reflect new requirements
+    Updated launch scripts to reflect new server
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/entity/Room.ts | 48 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
+
+ */
+
 // TypeORM imports
 import {
     Entity,

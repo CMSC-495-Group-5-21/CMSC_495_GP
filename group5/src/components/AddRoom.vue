@@ -1,5 +1,45 @@
 <!--
 Template for the admin page to add a room
+
+        *** Change Log ***
+
+        commit 8d82309e25d5a530e6b6e85e2224003ec309d605
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Mar 7 09:57:09 2021 -0500
+
+    Added comments to all of the files that were missing them
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/components/AddRoom.vue | 29 
+ 1 file changed, 22 insertions(+), 7 deletions(-)
+
+commit e988e4e17acd23580639982e3ae9f8e10f4b1779
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Mar 7 08:09:11 2021 -0500
+
+    Updated formatting on all of the pages to make them fit the standard style guides
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/components/AddRoom.vue | 105
+ 1 file changed, 52 insertions(+), 53 deletions(-)
+
+commit 47b1cb2f596de0a2172ceaaf6756f7cf834d5ce3
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Thu Mar 4 21:59:17 2021 -0500
+
+    Added all sub admin pages
+    Implemented basic functionality
+    Everything seems to work ok
+    Need to add the delete user/reservation still
+    Need to add a user management portion still
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/components/AddRoom.vue | 124
+ 1 file changed, 124 insertions(+)
+
 -->
 <template>
 <div>

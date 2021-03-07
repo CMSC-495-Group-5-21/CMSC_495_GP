@@ -1,3 +1,136 @@
+/*
+ *          *** Change Log ***
+
+ commit e988e4e17acd23580639982e3ae9f8e10f4b1779
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Mar 7 08:09:11 2021 -0500
+
+    Updated formatting on all of the pages to make them fit the standard style guides
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/app.ts | 60 ++++++++++++++++++++++++------------------------
+ 1 file changed, 30 insertions(+), 30 deletions(-)
+
+commit a8d971a5fe9c41ff50516fb19709e57eef8c62b6
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Mar 7 07:56:38 2021 -0500
+
+    Added the final functionality
+
+    Added About Us
+
+    Added Update Profile
+
+    Added New Links
+
+    Added Radio Buttons to Cancel Reservations
+
+    Added Radio Buttons to Make Users Admins
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/app.ts | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+commit 47b1cb2f596de0a2172ceaaf6756f7cf834d5ce3
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Thu Mar 4 21:59:17 2021 -0500
+
+    Added all sub admin pages
+    Implemented basic functionality
+    Everything seems to work ok
+    Need to add the delete user/reservation still
+    Need to add a user management portion still
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/app.ts | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit f149fb209f18464fe278f6271542c2e771cb9fd8
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Thu Mar 4 18:28:55 2021 -0500
+
+    Made the reservation page functional
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/app.ts | 33 +++++++++++++++++++++++++++++++--
+ 1 file changed, 31 insertions(+), 2 deletions(-)
+
+commit 93c0cd445a3c4715f12925948bc5abdb315f7e4c
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Thu Mar 4 13:26:15 2021 -0500
+
+    Added reservations to the profile page
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/app.ts | 25 ++++++++++++++++++++++++-
+ 1 file changed, 24 insertions(+), 1 deletion(-)
+
+commit 41b8da4e7c6658324af21c70318ab22650c27212
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Thu Mar 4 05:11:15 2021 -0500
+
+    Added login functionality as well as basic cookie support
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/app.ts | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit 0e3e0e186566c04717a1355d7e99a0d69c57e058
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Wed Mar 3 11:47:21 2021 -0500
+
+    Created a working registration form
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/app.ts | 23 ++++++++++++++---------
+ 1 file changed, 14 insertions(+), 9 deletions(-)
+
+commit f2a03e59cf7b4fab44cbbc3c0e9ec449ebe88f72
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Feb 28 17:07:20 2021 -0500
+
+    Fixed a typo
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/app.ts | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+commit 1cb04b247beffb17f35f907640bb7c9eba4a995d
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Feb 28 17:02:57 2021 -0500
+
+    Added REST routes and things to be consumed by the front end.
+
+    Still need to make them secure and work on persisting the session.
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/app.ts | 269 +++++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 259 insertions(+), 10 deletions(-)
+
+commit 06aa099203a84415c47488341666434a0a891e00
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Fri Feb 26 13:44:48 2021 -0500
+
+    Added initial backend server,
+    Updated models to reflect new requirements
+    Updated launch scripts to reflect new server
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/app.ts | 38 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 38 insertions(+)
+
+ */
+
 // Express imports
 import express from "express";
 import { Request, Response } from "express";

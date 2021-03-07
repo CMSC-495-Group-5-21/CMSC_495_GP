@@ -1,3 +1,21 @@
+/*
+ *          *** Change Log ***
+
+ commit 06aa099203a84415c47488341666434a0a891e00
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Fri Feb 26 13:44:48 2021 -0500
+
+    Added initial backend server,
+    Updated models to reflect new requirements
+    Updated launch scripts to reflect new server
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/entity/Reservation.ts | 64 +++++++++++++++++++++++++++++++++
+ 1 file changed, 64 insertions(+)
+
+ */
+
 // TypeORM imports
 import {
     Entity,

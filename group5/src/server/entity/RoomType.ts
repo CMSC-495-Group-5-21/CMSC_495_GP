@@ -1,3 +1,54 @@
+/*
+ *          *** Change Log ***
+
+ commit 8d82309e25d5a530e6b6e85e2224003ec309d605
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Mar 7 09:57:09 2021 -0500
+
+    Added comments to all of the files that were missing them
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/entity/RoomType.ts | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit e988e4e17acd23580639982e3ae9f8e10f4b1779
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Mar 7 08:09:11 2021 -0500
+
+    Updated formatting on all of the pages to make them fit the standard style guides
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/entity/RoomType.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f149fb209f18464fe278f6271542c2e771cb9fd8
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Thu Mar 4 18:28:55 2021 -0500
+
+    Made the reservation page functional
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/entity/RoomType.ts | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+commit 06aa099203a84415c47488341666434a0a891e00
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Fri Feb 26 13:44:48 2021 -0500
+
+    Added initial backend server,
+    Updated models to reflect new requirements
+    Updated launch scripts to reflect new server
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/server/entity/RoomType.ts | 41 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 41 insertions(+)
+
+ */
+
 // TypeORM imports
 import {
     Entity,

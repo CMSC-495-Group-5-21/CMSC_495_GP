@@ -1,6 +1,41 @@
 <!--
 The template for the about page.
 Will be inserted beneath the index.html page
+
+        *** Change Log  ***
+
+        commit 8d82309e25d5a530e6b6e85e2224003ec309d605
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Mar 7 09:57:09 2021 -0500
+
+    Added comments to all of the files that were missing them
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/components/About.vue | 7 
+ 1 file changed, 7 insertions(+)
+
+commit a8d971a5fe9c41ff50516fb19709e57eef8c62b6
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Mar 7 07:56:38 2021 -0500
+
+    Added the final functionality
+
+    Added About Us
+
+    Added Update Profile
+
+    Added New Links
+
+    Added Radio Buttons to Cancel Reservations
+
+    Added Radio Buttons to Make Users Admins
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/components/About.vue | 30
+ 1 file changed, 30 insertions(+)
+
 -->
 <template>
 <div>

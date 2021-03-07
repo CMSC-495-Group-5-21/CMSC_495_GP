@@ -1,6 +1,52 @@
 <!--
 Template used to update a given user
 Must be logged in to function
+
+    *** Change Log ***
+
+    commit 8d82309e25d5a530e6b6e85e2224003ec309d605
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Mar 7 09:57:09 2021 -0500
+
+    Added comments to all of the files that were missing them
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/components/updateUser.vue | 22
+ 1 file changed, 16 insertions(+), 6 deletions(-)
+
+commit e988e4e17acd23580639982e3ae9f8e10f4b1779
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Mar 7 08:09:11 2021 -0500
+
+    Updated formatting on all of the pages to make them fit the standard style guides
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/components/updateUser.vue | 286
+ 1 file changed, 113 insertions(+), 173 deletions(-)
+
+commit a8d971a5fe9c41ff50516fb19709e57eef8c62b6
+Author: Naomi Bonnin <naomi172839@gmail.com>
+Date:   Sun Mar 7 07:56:38 2021 -0500
+
+    Added the final functionality
+
+    Added About Us
+
+    Added Update Profile
+
+    Added New Links
+
+    Added Radio Buttons to Cancel Reservations
+
+    Added Radio Buttons to Make Users Admins
+
+    Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
+
+ group5/src/components/updateUser.vue | 199
+ 1 file changed, 199 insertions(+)
+
 -->
 <template>
 <div>
