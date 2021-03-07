@@ -317,6 +317,25 @@ createConnection().then(connection => {
         }
     });
 
+    // Cancel a reservations
+    app.post("/cancelReservation", upload.none(), async function(req: Request, res: Response) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.setHeader('Access-Control-Allow-Credentials',"true");
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        try {
+            const deleted = await connection
+            .createQueryBuilder()
+            .softDelete()
+            .from(Reservation)
+            .where("uuid = :uuid", {uuid: req.body.uuid})
+            .execute();
+            res.json(deleted);
+
+        } catch(e) {
+            res.send("Unable to delete reservation");
+        }
+    });
+
     // Update the selected user
     app.post("/updateUser", upload.none(), async function(req: Request, res: Response) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');

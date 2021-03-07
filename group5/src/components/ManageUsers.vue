@@ -2,38 +2,45 @@
 <div>
     <h1> Welcome, {{firstName}}!</h1>
     <h2>Rosebudd Hotel</h2>
-    <!-- View Rooms reserved -->
-    <table id="users" class="table mt-5">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">User ID</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Middle Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Admin</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="(user, i) in this.users" :key="i">
-                <th scope="row">{{++i}}</th>
-                <td>{{user.uuid}}</td>
-                <td>{{user.firstName}}</td>
-                <td>{{user.middleName}}</td>
-                <td>{{user.lastName}}</td>
-                <td>{{user.admin}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <br />
-    <div class="container-fluid">
-        <button class="btn btn btn-standard">
-            <router-link to="/"> Home </router-link>
-        </button>
-        <button v-if="admin" class="btn btn btn-standard">
-            <router-link to="adminhome"> Admin Menu </router-link>
-        </button>
-    </div>
+    <form class="justify-content-center" id="newroom" @submit.prevent="this.makeAdmin">
+        <!-- View Rooms reserved -->
+        <table id="users" class="table mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">User ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Middle Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Admin</th>
+                    <th scope="col">Make Admin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(user, i) in this.users" :key="i">
+                    <th scope="row">{{++i}}</th>
+                    <td>{{user.uuid}}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.middleName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.admin}}</td>
+                    <td><input type="radio" name="newAdmin" id="newAdmin" v-model="newAdmin" :value="user.uuid" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div class="container-fluid">
+            <button class="btn btn btn-warning" type="submit">
+                Submit
+            </button>
+            <button class="btn btn btn-standard">
+                <router-link to="/"> Home </router-link>
+            </button>
+            <button v-if="admin" class="btn btn btn-standard">
+                <router-link to="adminhome"> Admin Menu </router-link>
+            </button>
+        </div>
+    </form>
 </div>
 </template>
 
@@ -50,13 +57,15 @@ export default {
         let lastName = '';
         let users = [];
         let admin = false;
+        let newAdmin = "";
         return {
             uuid,
             firstName,
             middleName,
             lastName,
             users,
-            admin
+            admin,
+            newAdmin
         }
     },
     methods: {
@@ -67,7 +76,19 @@ export default {
                 "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
             ));
             return matches ? decodeURIComponent(matches[1]) : undefined;
-        }
+        },
+        makeAdmin: function() {
+            let data = new FormData();
+            let uuid = this.newAdmin;
+            data.append("uuid", uuid);
+            axios.post("http://localhost:4000/makeAdmin", data)
+                .then(response => this.response = response.data)
+                .then(router.push('adminhome'))
+                .then(router.go(1))
+                .catch(error => {
+                    alert(error);
+                });
+            }
 
     },
     mounted() {

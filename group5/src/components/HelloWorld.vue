@@ -32,6 +32,13 @@
                     </button>
                 </div>
             </li>
+            <li>
+                <div class="container-fluid">
+                    <button class="btn btn btn-warning">
+                        <router-link to="about"> About Us </router-link>
+                    </button>
+                </div>
+            </li>
         </ul>
     </div>
 </template>

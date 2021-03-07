@@ -98,7 +98,7 @@
         <li>
           <div class="container-fluid">
             <button class="btn btn btn-standard" type="submit">
-              <router-link to="thankyou"> Submit </router-link>
+              Submit
             </button>
           </div>
         </li>
