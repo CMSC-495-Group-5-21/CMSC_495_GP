@@ -11,6 +11,8 @@ import ManageUsers from '../components/ManageUsers.vue'
 import ManageReservations from '../components/ManageReservations.vue'
 import AddRoom from '../components/AddRoom.vue'
 import AddRoomType from '../components/AddRoomType.vue'
+import updateUser from '../components/updateUser.vue'
+import About from '../components/About.vue'
 
 const history = createWebHistory();
 const routes = [
@@ -75,6 +77,16 @@ const routes = [
         name: 'UserProfile',
         component: UserProfile
     },
+    {
+        path: '/updateUser',
+        name: 'UpdateUser',
+        component: updateUser
+    },
+    {
+        path: '/about',
+        name: 'About',
+        component: About
+    }
 ];
 
 const router = createRouter({ history, routes })
