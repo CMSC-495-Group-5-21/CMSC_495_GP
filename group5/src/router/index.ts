@@ -1,3 +1,9 @@
+/*
+ *  This is the router used by vue to correctly navigate through all of the
+ *  possible pages.
+ */
+
+// Import all of the things needed including the components
 import { createWebHistory, createRouter } from 'vue-router'
 import HelloWorld from '../components/HelloWorld.vue'
 import Login from '../components/Login.vue'
@@ -14,8 +20,8 @@ import AddRoomType from '../components/AddRoomType.vue'
 import updateUser from '../components/updateUser.vue'
 import About from '../components/About.vue'
 
-const history = createWebHistory();
-const routes = [
+const history = createWebHistory(); // Create a web history allowing navigation
+const routes = [    // All of the routes used by vue and what components they go to
     {
         path: '/',
         name: 'HelloWorld',

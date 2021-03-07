@@ -29,6 +29,7 @@ export class RoomType {
     @Column()
     typeCost!: number;
 
+    // Relationship between a room and a roomType
     @OneToMany(() => Room, room => room.roomType)
     rooms!: Room[];
 

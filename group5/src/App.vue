@@ -1,3 +1,7 @@
+<!--
+Main template serving as a base for the remainder of the program
+Used as an entry point
+-->
 <template>
 <div id="app">
     <img src="./assets/lobby.jpg" alt="Trulli" width="1000" height="333">
@@ -6,6 +10,7 @@
 </template>
 
 <script>
+// Export this for use by Vue
 export default {
     name: 'App'
 }

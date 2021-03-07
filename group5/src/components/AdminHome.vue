@@ -1,3 +1,7 @@
+<!--
+Homepage for the administrative users
+Contains links to all of the admin functionality
+-->
 <template>
 <div>
     <h2>Welcome Admin</h2>
@@ -34,6 +38,7 @@
 
 
 <script>
+// Used to simply expose this page to vue and the vueRouter
 export default {
 
 }

@@ -1,9 +1,18 @@
+<!--
+Create a admin page for viewing and deleting reservations
+-->
 <template>
 <div>
     <h1> Welcome, {{firstName}}!</h1>
     <h2>Rosebudd Hotel</h2>
+    <!--
+    Form for showing all of the reservations and deleting any of them
+    Will call deleteReservation of form submit
+    -->
     <form class="justify-content-center" id="newroom" @submit.prevent="this.deleteReservation">
-        <!-- View Rooms reserved -->
+        <!--
+        Create a table of all of the reservations, pulled dynamically
+        -->
         <table id="reservations" class="table mt-5">
             <thead>
                 <tr>
@@ -47,10 +56,13 @@
 
 
 <script lang="ts">
+// Script for exposing component to vue and for form methods
+
+// Use axios for requests, for simplicity
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 import router from '../router';
-export default {
+export default { // Expose everything
     data() {
         let uuid = '';
         let firstName = '';
@@ -78,7 +90,7 @@ export default {
             ));
             return matches ? decodeURIComponent(matches[1]) : undefined;
         },
-        deleteReservation: function() {
+        deleteReservation: function() { // Called upon form submision
             let data = new FormData();
             let uuid = this.deletedUUID;
             data.append("uuid", uuid);
@@ -93,7 +105,7 @@ export default {
         }
 
     },
-    mounted() {
+    mounted() { // Called on page load
         let uuid = this.getCookie("uuid");
         this.uuid = uuid;
         let firstName = this.getCookie("firstName");

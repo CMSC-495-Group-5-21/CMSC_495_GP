@@ -1,10 +1,21 @@
+<!--
+Template for the admin page to add a room
+-->
 <template>
 <div>
     <div>
         <h1>Rosebudd Hotel Profile Creation</h1>
         <!-- Create Profile for New Users -->
+        <!--
+        Creates the form fr a new room.
+        Will call the processForm method when submit is pressed
+        -->
         <form class="justify-content-center" id="newroom" @submit.prevent="this.processForm">
             <div>
+                <!--
+                The table containing all of the room types
+                Will iterate through all of the room types avilable on page load
+                -->
                 <table id="type" name="type" class="table mt-5">
                     <thead>
                         <tr>
@@ -49,15 +60,19 @@
 
 
 <script lang="ts">
+// The typescript file that is used by vue to make the page responsive
+
+// Use axios to simplify making the requests
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 import router from '../router';
+// Export all of the things for use by vue
 export default {
     data() {
         let roomType = '';
         let rooms = [];
-        let roomTypes = new Map();
-        let roomCosts = new Map();
+        let roomTypes = new Map(); // Key-Value storage of types
+        let roomCosts = new Map(); // Key-value storage of costs
         return {
             rooms,
             roomType,
@@ -66,7 +81,7 @@ export default {
         };
     },
     methods: {
-        processForm: function() {
+        processForm: function() { // Called when submit is pressed
             let data = new FormData();
             data.append('roomType', this.roomType);
             axios.post('http://localhost:4000/newRoom', data)
@@ -78,7 +93,7 @@ export default {
                 });
 
         },
-        getTypes: function() {
+        getTypes: function() { // Call on page load
             axios.get('http://localhost:4000/getAllRoomTypes')
                 .then((response) => {
                     let roomTypes = new Map();
@@ -93,15 +108,15 @@ export default {
                     alert(error);
                 });
         },
-        getCookie: function(name) {
+        getCookie: function(name) { // Helper to get cookie data
             let matches = document.cookie.match(new RegExp(
                 "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
             ));
             return matches ? decodeURIComponent(matches[1]) : undefined;
         }
     },
-    update() {},
-    mounted() {
+    update() {}, // Empty as it was too much for the browser
+    mounted() { // Called on page load
         let uuid = this.getCookie("uuid");
         this.uuid = uuid;
         let firstName = this.getCookie("firstName");

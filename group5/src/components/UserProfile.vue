@@ -1,9 +1,16 @@
+<!--
+More or less a landing page for users once they login
+-->
 <template>
 <div>
     <h1> Welcome, {{firstName}}!</h1>
     <h2>Rosebudd Hotel</h2>
+    <!--
+    Form used to allow users to cancel a reservation
+    Calls deleteReservation upon submit
+    -->
     <form class="justify-content-center" id="newroom" @submit.prevent="this.deleteReservation">
-        <!-- View Rooms reserved -->
+        <!-- View all reserved rooms in a dynamic table -->
         <table id="reservations" class="table mt-5">
             <thead>
                 <tr>
@@ -52,10 +59,13 @@
 
 
 <script lang="ts">
+// Script used to expose things to vue and also populate necessary data
+
+// Use axios for simplicity
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 import router from '../router';
-export default {
+export default { // Expose all of the things to vue
     data() {
         let uuid = '';
         let firstName = '';
@@ -79,7 +89,7 @@ export default {
             ));
             return matches ? decodeURIComponent(matches[1]) : undefined;
         },
-        deleteReservation: function() {
+        deleteReservation: function() { //Called when submit is pressed
             let data = new FormData();
             let uuid = this.deletedUUID;
             data.append("uuid", uuid);
@@ -94,7 +104,7 @@ export default {
         }
 
     },
-    mounted() {
+    mounted() { // Called upon page load
         let uuid = this.getCookie("uuid");
         this.uuid = uuid;
         let firstName = this.getCookie("firstName");

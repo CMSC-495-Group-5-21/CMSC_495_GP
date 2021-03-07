@@ -1,8 +1,14 @@
+<!--
+Template for adding a new type of room
+This is an admin page
+-->
 <template>
 <div>
     <div>
         <h1>Rosebudd Hotel Profile Creation</h1>
-        <!-- Create Profile for New Users -->
+        <!-- Form for the creation of new room types
+        Will call processForm when submit is pressed
+        -->
         <form class="justify-content-center" id="newroomtype" @submit.prevent="this.processForm">
             <label for="typeName" class="grey-text">Room Type Name </label>
             <input type="text" id="typeName" name="typeName" class="form-control" placeholder="typeName" v-model="typeName" />
@@ -32,9 +38,12 @@
 
 
 <script lang="ts">
+// Script for use by vue to make the page responsive
+
+// Use axios for all of the requests
 import axios from 'axios';
 import router from '../router'
-export default {
+export default { // Export all of the things for vue to use
     data() {
         var typeName = '';
         var typeCost = '';
@@ -44,7 +53,7 @@ export default {
         };
     },
     methods: {
-        processForm: function() {
+        processForm: function() { // Called when submit is pressed
             let data = new FormData();
             data.append('typeName', this.typeName);
             data.append('typeCost', this.typeCost);

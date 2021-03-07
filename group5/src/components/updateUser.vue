@@ -1,9 +1,16 @@
+<!--
+Template used to update a given user
+Must be logged in to function
+-->
 <template>
 <div>
     <div>
         <h1>Rosebudd Hotel Profile Creation</h1>
-        <!-- Create Profile for New Users -->
-        <form class="justify-content-center" id="upateUser" @submit.prevent="this.processForm">
+        <!--
+        Update users current profile
+        Calls processForm upon submission
+        -->
+        <form class="justify-content-center" id="updateUser" @submit.prevent="this.processForm">
             <label for="username" class="grey-text">Username </label>
             <input type="text" id="username" name="username" class="form-control" placeholder="username" v-model="username" />
             <br />
@@ -36,7 +43,7 @@
             <input type="text" id="suffix" name="suffix" class="form-control" placeholder="II" v-model="suffix" />
             <br />
             <br />
-            <!-- Submit | Home Buttons -->
+            <!-- Buttons -->
             <ul>
                 <li>
                     <div class="container-fluid">
@@ -60,9 +67,12 @@
 
 
 <script lang="ts">
+// Script to update users and expose things to vue
+
+// Use axios for submissions
 import axios from "axios";
 import router from "../router";
-export default {
+export default { // Export everything to vue for use
     data() {
         var username = "";
         var password = "";
@@ -94,7 +104,7 @@ export default {
             ));
             return matches ? decodeURIComponent(matches[1]) : undefined;
         },
-        processForm: function() {
+        processForm: function() { // Called upon form save
             let data = new FormData();
             data.append("uuid", this.uuid);
             data.append("username", this.username);
@@ -113,7 +123,7 @@ export default {
                 });
         },
     },
-    mounted() {
+    mounted() { // Call upon form load
         let uuid = this.getCookie("uuid");
         this.uuid = uuid;
     }

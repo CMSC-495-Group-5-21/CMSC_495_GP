@@ -1,8 +1,13 @@
+<!--
+A template that contains a form to create a new user
+-->
 <template>
 <div>
     <div>
         <h1>Rosebudd Hotel Profile Creation</h1>
-        <!-- Create Profile for New Users -->
+        <!-- Create Profile for New Users
+        Calls processForm upon form submission
+        -->
         <form class="justify-content-center" id="newuser" @submit.prevent="this.processForm">
             <label for="username" class="grey-text">Username </label>
             <input type="text" id="username" name="username" class="form-control" placeholder="username" v-model="username" />
@@ -36,7 +41,7 @@
             <input type="text" id="suffix" name="suffix" class="form-control" placeholder="II" v-model="suffix" />
             <br />
             <br />
-            <!-- Submit | Home Buttons -->
+            <!-- Buttons -->
             <ul>
                 <li>
                     <div class="container-fluid">
@@ -60,9 +65,12 @@
 
 
 <script lang="ts">
+// Script to expose everything to vue and process the form
+
+// Use axios for requests to simplify everything
 import axios from "axios";
 import router from "../router";
-export default {
+export default { // Expose literally everything to vue
     data() {
         var username = "";
         var password = "";
@@ -84,7 +92,7 @@ export default {
         };
     },
     methods: {
-        processForm: function() {
+        processForm: function() { // Called on form submission
             let data = new FormData();
             data.append("username", this.username);
             data.append("password", this.password);

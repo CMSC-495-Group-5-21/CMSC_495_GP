@@ -1,3 +1,7 @@
+<!--
+The template for the about page.
+Will be inserted beneath the index.html page
+-->
 <template>
 <div>
     <h1>About Us</h1>
@@ -15,6 +19,9 @@
 </div>
 </template>
 
+<!--
+The script that simply makes this template avilable to the project as a whole
+-->
 <script lang='ts'>
 export default {
     setup() {

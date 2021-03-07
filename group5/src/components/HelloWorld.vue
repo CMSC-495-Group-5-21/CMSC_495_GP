@@ -1,15 +1,20 @@
+<!--
+The homepage, which is very inappropriately named HelloWorld
+Given enough time, this should be refactored but this is too much effort for
+right now
+-->
 <template>
 <div class="hello">
-    <!-- Example of vusJs -->
+    <!-- If a message is passed to the user -->
     <h1>{{ msg }}</h1>
-    <!-- Message text -->
+    <!-- Some basic information -->
     <div class="textbox">
         <p>We have rooms with doors.</p>
         <p>One towel per room, regardless of number of occupants.</p>
         <p>Should a roof leak, move the bed to a dry area.</p>
     </div>
     <br>
-    <!-- Login | Register | Contact Us Buttons -->
+    <!-- Navigation buttons -->
     <ul>
         <li>
             <div class="container-fluid">
@@ -43,8 +48,8 @@
 </div>
 </template>
 
-<!-- Example of vusJs -->
 <script>
+// Script that exposes the component to VueJS for routing and reactivity
 export default {
     name: 'Welcome',
     data() {

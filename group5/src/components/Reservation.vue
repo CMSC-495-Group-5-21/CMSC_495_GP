@@ -1,14 +1,27 @@
+<!--
+Template for reserving a new room
+Must first be logged in
+-->
 <template>
 <div>
     <h1>Reserve a Room at Rosebudd Hotel</h1>
+    <!--
+    For to be completed by the user to request a new room
+    -->
     <form id="newReservation" class="justify-content-center" @submit.prevent="this.processForm">
-        <!-- login -->
+        <!-- If the user is logged in display their name
+        Else display a login button
+        -->
         <div class="name">
             <label for="user" class="grey-text">Reservation For: </label>
             <br />
             <label v-if="!!this.uuid" id="user" name="user">{{
           this.firstName + " " + this.lastName
         }}</label>
+            <button v-else id="login2" name="login2">
+                <router-link to="login"> Login </router-link>
+            </button>
+
         </div>
         <!-- date text -->
         <div class="date">
@@ -20,11 +33,18 @@
             <label for="endDate" class="grey-text"> End Date: </label>
             <input type="date" id="endDate" name="endDate" class="form-control" v-model="endDate" />
         </div>
-        <!-- Room select -->
+        <!--
+        If no open rooms are within the date range, show the no rooms message
+        else display list of rooms
+        -->
         <div v-show="this.show">
             <label v-if="!this.openRooms.length" id="notfound" name="notfound">
                 No Open Rooms Found
             </label>
+            <!--
+            Creates a dynamic table of rooms aviliable during the specified
+            date range
+            -->
             <table v-else id="openRooms" name="openRooms" class="table mt-5">
                 <thead>
                     <tr>
@@ -49,6 +69,10 @@
             </table>
         </div>
         <br />
+        <!--
+        Button to get the aviliable rooms
+        Calls getRooms when pressed
+        -->
         <button class="btn btn btn-danger" id="getrooms" @click.prevent="this.getRooms">
             Get Open Rooms
         </button>
@@ -59,7 +83,7 @@
         <textarea id="specialRequest" name="specialRequest" class="form-control" placeholder="Please enter requests (Optional)" v-model="specialRequests" rows="6" columns="50" />
         <br />
         <br />
-        <!-- Submit and Home Buttons -->
+        <!-- Buttons -->
         <ul>
             <li>
                 <div class="container-fluid">
@@ -81,10 +105,13 @@
 </template>
 
 <script lang="ts">
+// Script to expose everything to vue and proceess forms
+
+// Use axios for requests, for simplicity
 import axios from "axios";
 axios.defaults.withCredentials = true;
 import router from "../router";
-export default {
+export default { // Expose everything to vue
     data() {
         let uuid = "";
         let firstName = "";
@@ -95,7 +122,7 @@ export default {
         let specialRequests = "";
         let openRooms = [];
         let show = false;
-        let roomTypes = new Map();
+        let roomTypes = new Map(); // Key-Value pairs for types
         let roomCosts = new Map();
         return {
             uuid,
@@ -112,7 +139,7 @@ export default {
         };
     },
     methods: {
-        processForm: function() {
+        processForm: function() { // Called when submit is pressed
             let data = new FormData();
             data.append("startDate", this.startDate);
             data.append("endDate", this.endDate);
@@ -129,7 +156,7 @@ export default {
                     alert(error);
                 });
         },
-        getRooms: function() {
+        getRooms: function() { // Called when get rooms is pressed
             this.show = true;
             let data = new FormData();
             data.append("startDate", this.startDate);
@@ -158,7 +185,7 @@ export default {
                     alert(error);
                 });
         },
-        getCookie: function(name) {
+        getCookie: function(name) { // Helper to pull and parse cookie data
             let matches = document.cookie.match(
                 new RegExp(
                     "(?:^|; )" +
@@ -169,8 +196,8 @@ export default {
             return matches ? decodeURIComponent(matches[1]) : undefined;
         },
     },
-    update() {},
-    mounted() {
+    update() {}, // Excluded due to overloading page with requests
+    mounted() { // Called on page load
         let uuid = this.getCookie("uuid");
         this.uuid = uuid;
         let firstName = this.getCookie("firstName");

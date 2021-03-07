@@ -1,9 +1,16 @@
+<!--
+A admin template for managing users by making them admins
+-->
 <template>
 <div>
     <h1> Welcome, {{firstName}}!</h1>
     <h2>Rosebudd Hotel</h2>
+    <!--
+    The form for displaying all of the users
+    calls makeAdmin upon submission
+    -->
     <form class="justify-content-center" id="newroom" @submit.prevent="this.makeAdmin">
-        <!-- View Rooms reserved -->
+        <!-- View all users, pulled dynamically -->
         <table id="users" class="table mt-5">
             <thead>
                 <tr>
@@ -46,10 +53,13 @@
 
 
 <script lang="ts">
+// Script to expose things to vue and helpful methods for submssions
+
+// USe axios to manage requests, for simplicity
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 import router from '../router';
-export default {
+export default { // Expose everything to vue
     data() {
         let uuid = '';
         let firstName = '';
@@ -77,7 +87,7 @@ export default {
             ));
             return matches ? decodeURIComponent(matches[1]) : undefined;
         },
-        makeAdmin: function() {
+        makeAdmin: function() { // Called upon form submission
             let data = new FormData();
             let uuid = this.newAdmin;
             data.append("uuid", uuid);
@@ -91,7 +101,7 @@ export default {
         }
 
     },
-    mounted() {
+    mounted() { // Called upon page load
         let uuid = this.getCookie("uuid");
         this.uuid = uuid;
         let firstName = this.getCookie("firstName");

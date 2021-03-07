@@ -1,3 +1,4 @@
+// Able to be used to allow bootstrap css styling
 import vue from "vue";
 
 import BootstrapVue from "bootstrap-vue";

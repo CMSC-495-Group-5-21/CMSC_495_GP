@@ -1,3 +1,7 @@
+<!--
+Template for the contact us page
+Simply creates a useless form for the user to see
+-->
 <template>
 <div>
     <h1>Please enter your information</h1>
@@ -23,6 +27,7 @@
 </template>
 
 <script lang='ts'>
+// Simply exposes the template to vue for routing
 export default {
     setup() {
         const msg = "name";

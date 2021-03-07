@@ -1,6 +1,13 @@
+<!--
+Login page for users and admins to login
+-->
 <template>
 <div>
     <div>
+        <!--
+        Login form.
+        Calls processForm when the submit button is pressed
+        -->
         <form class="justify-content-center" id="login" @submit.prevent="this.processForm">
             <h1>Rosebudd Hotel Login</h1>
             <label for="username" class="grey-text">Username </label>
@@ -30,10 +37,13 @@
 
 
 <script lang="ts">
+// TS script for the submission and exposing to Vue
+
+// Use axios for all of the requests, for simplicity
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 import router from '../router'
-export default {
+export default { // Expose the components to vue
     data() {
         var username = '';
         var password = '';
@@ -43,7 +53,7 @@ export default {
         };
     },
     methods: {
-        processForm: function() {
+        processForm: function() { // Called on form submission
             let data = new FormData();
             data.append('username', this.username);
             data.append('password', this.password);
