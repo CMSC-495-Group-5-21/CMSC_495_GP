@@ -1,28 +1,28 @@
 {
-   "type": "mysql",
-   "host": "localhost",
-   "port": 3306,
-   "username": "test",
-   "password": "CMSC495Group5",
-   "database": "test",
-   "synchronize": true,
-   "logging": false,
-   "entities": [
-      "src/server/entity/**/*.ts",
-      "src/server/entity/**/*.js"
-   ],
-   "migrationsTableName": "migrations",
-   "migrations": [
-      "src/server/migration/**/*.ts",
-      "src/server/migration/**/*.js"
-   ],
-   "subscribers": [
-      "src/server/subscriber/**/*.ts",
-      "src/server/subscriber/**/*.js"
-   ],
-   "cli": {
-     "entitiesDir": "src/server/entity",
-     "migrationsDir": "src/server/migration",
-     "subscriberDir": "src/server/subscriber"
-   }
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "test",
+    "password": "CMSC495Group5",
+    "database": "test",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+        "src/server/entity/**/*.ts",
+        "src/server/entity/**/*.js"
+    ],
+    "migrationsTableName": "migrations",
+    "migrations": [
+        "src/server/migration/**/*.ts",
+        "src/server/migration/**/*.js"
+    ],
+    "subscribers": [
+        "src/server/subscriber/**/*.ts",
+        "src/server/subscriber/**/*.js"
+    ],
+    "cli": {
+        "entitiesDir": "src/server/entity",
+        "migrationsDir": "src/server/migration",
+        "subscriberDir": "src/server/subscriber"
+    }
 }

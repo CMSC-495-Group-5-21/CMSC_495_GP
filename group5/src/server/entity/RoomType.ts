@@ -10,7 +10,7 @@ import {
     OneToMany
 } from "typeorm";
 
-import {Room} from './Room'
+import { Room } from './Room'
 
 // The RoomType model defines a specific room type
 // There can be multiple rooms with the same type
