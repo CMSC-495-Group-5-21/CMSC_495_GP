@@ -11,7 +11,7 @@ Date:   Sun Mar 7 09:57:09 2021 -0500
 
     Signed-off-by: Naomi Bonnin <naomi172839@gmail.com>
 
- group5/src/components/ProfileCreation.vue | 16 
+ group5/src/components/ProfileCreation.vue | 16
  1 file changed, 12 insertions(+), 4 deletions(-)
 
 commit e988e4e17acd23580639982e3ae9f8e10f4b1779
@@ -181,7 +181,7 @@ Date:   Sun Feb 28 21:54:53 2021 -0500
                 <li>
                     <div class="container-fluid">
                         <button class="btn btn btn-warning" type="submit">
-                            <router-link to="reservation"> Submit </router-link>
+                             Submit
                         </button>
                     </div>
                 </li>
@@ -239,7 +239,8 @@ export default { // Expose literally everything to vue
             axios
                 .post("http://localhost:4000/newUser", data)
                 .then((response) => (this.response = response.data))
-                .then(router.push("login"))
+                .then(router.push("reservation"))
+                .then(router.go(1))
                 .catch((error) => {
                     alert(error);
                 });
